@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: 'Cinzel', serif;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+body {
+  @apply bg-azure-black text-azure-cream font-sans antialiased overflow-x-hidden;
+  cursor: default;
+  /* No custom cursor as requested */
+}
+
+/* Hyper-realistic Hover Effect Class */
+.luxury-hover {
+  @apply relative overflow-hidden transition-all duration-700 ease-out;
+}
+
+.luxury-hover::before {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-opacity duration-700;
+  background: linear-gradient(120deg,
+      transparent 20%,
+      rgba(212, 175, 55, 0.4) 40%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(212, 175, 55, 0.4) 60%,
+      transparent 80%);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease-in-out;
+}
+
+.luxury-hover:hover {
+  @apply scale-95 brightness-110;
+  transform: scale(0.95);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1), 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.luxury-hover:hover::before {
+  @apply opacity-100;
+  transform: translateX(100%);
+}
+
+.luxury-hover::after {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 60%);
+  background-size: 150% 150%;
+}
+
+.luxury-hover:hover::after {
+  @apply opacity-30;
+  animation: sparkle 1s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Voice Concierge Orb Animations */
+@keyframes orb-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5), 0 0 60px rgba(212, 175, 55, 0.2);
+  }
+}
+
+@keyframes orb-breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.orb-active {
+  animation: orb-pulse 2s ease-in-out infinite, orb-breathe 4s ease-in-out infinite;
+}
