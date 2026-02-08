@@ -7,17 +7,14 @@ I've prepared your project for deployment!
 Since I don't have access to your GitHub credentials, run these commands in your terminal to push the code:
 
 ```bash
-# 1. Create a new repository on GitHub (https://github.com/new)
-# Name it 'azure-iq' or similar.
-# Do NOT initialize with README, .gitignore, or License.
+# 1. The remote is already configured to: https://github.com/dhruvtalnewar01/Azureiq.git
+# You can verify this by running:
+git remote -v
 
-# 2. Link your local repository to GitHub
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-
-# 3. Rename branch to main
+# 2. Rename branch to main (if not already done)
 git branch -M main
 
-# 4. Push your code
+# 3. Push your code
 git push -u origin main
 ```
 
@@ -26,7 +23,7 @@ git push -u origin main
 1.  Log in to [Netlify](https://app.netlify.com/).
 2.  Click **"Add new site"** > **"Import from an existing project"**.
 3.  Select **GitHub**.
-4.  Choose your `azure-iq` repository.
+4.  Choose your `Azureiq` repository.
 5.  **Build Settings:**
     *   **Base directory:** (leave empty)
     *   **Build command:** `npm run build`
